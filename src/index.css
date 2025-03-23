@@ -25,9 +25,9 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  font-family: 'Libre Franklin'
 }
 
 h1 {
@@ -52,6 +52,15 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.fondo-oscuro {
+  background-color: #0c0c0c;
+}
+
+@font-face {
+  font-family: 'Libre Franklin';
+  src: url("../src/assets/LibreFranklin-VariableFont_wght.ttf");
 }
 
 @media (prefers-color-scheme: light) {
