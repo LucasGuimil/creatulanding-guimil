@@ -1,14 +1,22 @@
-import { useState } from 'react'
 import './App.css'
-import NavBar from './components/NavBar'
-import ItemListContainer from './components/ItemListContainer'
+import NavBar from './components/header/NavBar'
+import ItemListContainer from './components/pages/ItemListContainer'
+import { Route, Routes } from 'react-router'
+import NotFound from './components/pages/NotFound'
+import ItemDetail from './components/pages/ItemDetail'
 
 function App() {
 
   return (
     <>
       <NavBar/>
-      <ItemListContainer text="Esta es la tienda oficial para activistas de Anonymous for the Voiceless, acá vas a ver todos nuestros productos disponibles."/>
+      <Routes>
+        <Route path="/" element={ItemListContainer}></Route>
+        <Route path="/category/:category" element={ItemListContainer}></Route>
+        <Route path="/item/:id" element={ItemDetail}></Route>
+        <Route path="*" element={NotFound}></Route>
+
+      </Routes>
     </>
   )
 }
