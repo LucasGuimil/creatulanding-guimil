@@ -1,11 +1,10 @@
-export const productos = [
+export const products = [
     {
         id: 1,
         nombre: "Remera Unisex de Algodón Orgánico con Logo",
         precio: "$35.00",
         descripcion: "Remera unisex 100% algodón orgánico, corte medio con cuello redondo.",
-        url: "https://www.anonymousforthevoiceless.org/shop/unisex-organic-cotton-av-logo-t-shirt",
-        imagen: "https://www.anonymousforthevoiceless.org/wp-content/uploads/2023/01/Unisex-Organic-Cotton-AV-Logo-T-Shirt.jpg",
+        imagen: "../src/assets/images/products/tshirt-logo.jpg",
         category: "Unisex"
     },
     {
@@ -13,8 +12,7 @@ export const productos = [
         nombre: "Buzo Unisex con Capucha y Símbolo al Centro",
         precio: "$60.00",
         descripcion: "Buzo con capucha, símbolo AV al frente, hecho con algodón orgánico y poliéster reciclado.",
-        url: "https://www.anonymousforthevoiceless.org/shop/av-symbol-centre-unisex-hoodie",
-        imagen: "https://www.anonymousforthevoiceless.org/wp-content/uploads/2023/01/Unisex-Hoodie-Symbol-Centre.jpg",
+        imagen: "../src/assets/images/products/hoodie-symbol-center.png",
         category: "Unisex"
     },
     {
@@ -22,8 +20,7 @@ export const productos = [
         nombre: "Tarjeta de Regalo AV",
         precio: "Desde $25.00",
         descripcion: "Tarjeta digital para regalar, válida para usar en toda la tienda online.",
-        url: "https://www.anonymousforthevoiceless.org/shop/av-gift-card",
-        imagen: "https://www.anonymousforthevoiceless.org/wp-content/uploads/2023/01/AV-Gift-Card.jpg",
+        imagen: "../src/assets/images/products/giftcard.png",
         category: "Accesorios"
     },
     {
@@ -31,8 +28,7 @@ export const productos = [
         nombre: "Buzo Unisex con Capucha y Logo AV",
         precio: "$65.00",
         descripcion: "Buzo con capucha y logo AV, fabricado con materiales orgánicos y reciclados.",
-        url: "https://www.anonymousforthevoiceless.org/shop/av-logo-unisex-hoodie",
-        imagen: "https://www.anonymousforthevoiceless.org/wp-content/uploads/2023/01/Unisex-Hoodie-Logo.jpg",
+        imagen: "../src/assets/images/products/hoodie-logo.jpg",
         category: "Unisex"
     },
     {
@@ -40,17 +36,15 @@ export const productos = [
         nombre: "Buzo Crop para Mujer con Símbolo AV",
         precio: "$40.00",
         descripcion: "Buzo corto estilo crop para mujer, con símbolo AV, hecho con materiales orgánicos.",
-        url: "https://www.anonymousforthevoiceless.org/shop/ladies-crop-sweatshirt-symbol",
-        imagen: "https://www.anonymousforthevoiceless.org/wp-content/uploads/2023/01/Ladies-Crop-Sweatshirt-Symbol.jpg",
+        imagen: "../src/assets/images/products/crop-symbol.jpg",
         category: "Mujer"
     },
     {
         id: 6,
-        nombre: "Gorra Orgánica con Símbolo AV",
+        nombre: "Gorra Baseball Orgánica con Símbolo AV",
         precio: "$40.00",
         descripcion: "Gorra estilo béisbol hecha con algodón orgánico, símbolo AV bordado.",
-        url: "https://www.anonymousforthevoiceless.org/shop/organic-baseball-hat-symbol",
-        imagen: "https://www.anonymousforthevoiceless.org/wp-content/uploads/2023/01/Organic-Baseball-Hat-Symbol.jpg",
+        imagen: "../src/assets/images/products/baseball-hat.jpg",
         category: "Accesorios"
     },
     {
@@ -58,8 +52,7 @@ export const productos = [
         nombre: "Buzo Unisex Liviano con Capucha y Símbolo",
         precio: "$60.00",
         descripcion: "Buzo ecológico con capucha, corte raglán y símbolo AV, ideal para media estación.",
-        url: "https://www.anonymousforthevoiceless.org/shop/unisex-eco-organic-raglan-lightweight-hoodie-symbol",
-        imagen: "https://www.anonymousforthevoiceless.org/wp-content/uploads/2023/01/Unisex-Eco-Organic-Raglan-Lightweight-Hoodie-Symbol.jpg",
+        imagen: "../src/assets/images/products/hoodie-symbol.jpg",
         category: "Unisex"
     },
     {
@@ -67,8 +60,7 @@ export const productos = [
         nombre: "Remera Unisex con Símbolo AV al Centro",
         precio: "$35.00",
         descripcion: "Remera de algodón orgánico, símbolo AV centrado. Diseño limpio y cómodo.",
-        url: "https://www.anonymousforthevoiceless.org/shop/unisex-organic-cotton-av-symbol-centre-t-shirt",
-        imagen: "https://www.anonymousforthevoiceless.org/wp-content/uploads/2023/01/Unisex-Organic-Cotton-AV-Symbol-Centre-T-Shirt.jpg",
+        imagen: "../src/assets/images/products/tshirt-symbol-center.jpeg",
         category: "Unisex"
     },
     {
@@ -76,8 +68,7 @@ export const productos = [
         nombre: "Gorra Orgánica con Logo AV",
         precio: "$40.00",
         descripcion: "Gorra clásica con el logo bordado de AV. Hecha con materiales sustentables.",
-        url: "https://www.anonymousforthevoiceless.org/shop/organic-av-logo-cap",
-        imagen: "https://www.anonymousforthevoiceless.org/wp-content/uploads/2023/01/Organic-AV-Logo-Cap.jpg",
+        imagen: "../src/assets/images/products/cap-logo.jpg",
         category: "Accesorios"
     },
     {
@@ -85,62 +76,55 @@ export const productos = [
         nombre: "Bolso Grande de Tela Orgánica con Logo AV",
         precio: "$30.00",
         descripcion: "Tote bag amplia hecha con algodón orgánico. Ideal para uso diario.",
-        url: "https://www.anonymousforthevoiceless.org/shop/large-organic-tote-bag",
-        imagen: "https://www.anonymousforthevoiceless.org/wp-content/uploads/2023/01/Large-Organic-Tote-Bag.jpg",
+        imagen: "../src/assets/images/products/totebag.jpg",
         category: "Accesorios"
     },
     {
         id: 11,
-        nombre: "Remera Unisex 'Truth' de Algodón Orgánico",
+        nombre: "Chaqueta bomber AV reciclada premium unisex",
         precio: "$35.00",
-        descripcion: "Remera unisex con la palabra 'Truth' estampada, hecha 100% con algodón orgánico.",
-        url: "https://www.anonymousforthevoiceless.org/shop/unisex-organic-cotton-truth-t-shirt",
-        imagen: "https://www.anonymousforthevoiceless.org/wp-content/uploads/2023/01/Unisex-Organic-Cotton-Truth-T-Shirt.jpg",
+        descripcion: "Nunca puedes equivocarte con una chaqueta bomber clásica, especialmente cuando es de alta calidad y está hecha de materiales reciclados. Esta versátil chaqueta bomber complementará la mayoría de los atuendos y estilos, y te mantendrá abrigado durante los días más fríos.",
+        imagen: "../src/assets/images/products/bomber.jpg",
         category: "Unisex"
     },
     {
         id: 12,
-        nombre: "Buzo Unisex 'Truth Over Opinion'",
-        precio: "$60.00",
-        descripcion: "Buzo unisex con el mensaje 'Truth Over Opinion' estampado, de algodón orgánico.",
-        url: "https://www.anonymousforthevoiceless.org/shop/unisex-organic-cotton-truth-over-opinion-hoodie",
-        imagen: "https://www.anonymousforthevoiceless.org/wp-content/uploads/2023/01/Unisex-Organic-Cotton-Truth-Over-Opinion-Hoodie.jpg",
+        nombre: "Camiseta unisex con símbolo",
+        precio: "$50.00",
+        descripcion: "La sudadera orgánica unisex está hecha de materiales orgánicos y reciclados, y se siente suave y acogedora al tacto.",
+        imagen: "../src/assets/images/products/camiseta-symbol.jpeg",
         category: "Unisex"
     },
     {
         id: 13,
-        nombre: "Buzo Crop para Mujer 'Truth'",
+        nombre: "Buzo Crop para Mujer logo",
         precio: "$40.00",
-        descripcion: "Buzo crop con el mensaje 'Truth' impreso, fabricado con algodón orgánico.",
-        url: "https://www.anonymousforthevoiceless.org/shop/ladies-crop-sweatshirt-truth",
-        imagen: "https://www.anonymousforthevoiceless.org/wp-content/uploads/2023/01/Ladies-Crop-Sweatshirt-Truth.jpg",
+        descripcion: "Buzo crop con el logo de Anonymous for the Voiceless, fabricado con algodón orgánico.",
+        imagen: "../src/assets/images/products/crop-logo.jpg",
         category: "Mujer"
     },
     {
         id: 14,
-        nombre: "Remera Unisex 'Truth Over Opinion' – Estilo Alternativo",
+        nombre: "Remera Unisex 'AV Tribe'",
         precio: "$35.00",
-        descripcion: "Otra versión gráfica del mensaje 'Truth Over Opinion', en camiseta unisex.",
-        url: "https://www.anonymousforthevoiceless.org/shop/unisex-organic-cotton-truth-over-opinion-alt",
-        imagen: "https://www.anonymousforthevoiceless.org/wp-content/uploads/2023/01/Unisex-Organic-Cotton-Truth-Over-Opinion-Alt.jpg",
+        descripcion: "Confeccionada en algodón 100% orgánico hilado en anillos, esta camiseta unisex es imprescindible. Es de alta calidad, súper cómodo y, lo mejor de todo, ecológico.",
+        imagen: "../src/assets/images/products/av-tribe.jpeg",
         category: "Unisex"
     },
     {
         id: 15,
-        nombre: "Remera Unisex con Frase 'Until Every Cage is Empty'",
+        nombre: "Remera Unisex con Símbolo",
         precio: "$35.00",
-        descripcion: "Remera activista con mensaje poderoso, de algodón orgánico.",
-        url: "https://www.anonymousforthevoiceless.org/shop/unisex-organic-cotton-until-every-cage-is-empty",
-        imagen: "https://www.anonymousforthevoiceless.org/wp-content/uploads/2023/01/Unisex-Organic-Cotton-Until-Every-Cage-is-Empty.jpg",
+        descripcion: "Confeccionada en algodón 100% orgánico hilado en anillos, esta camiseta unisex es imprescindible. Es de alta calidad, súper cómodo y, lo mejor de todo, ecológico.",
+        imagen: "../src/assets/images/products/tshirt-symbol.jpeg",
         category: "Unisex"
     },
     {
         id: 16,
-        nombre: "Remera Unisex 'AV Chapters'",
+        nombre: "Gorro 'Beanie'",
         precio: "$35.00",
-        descripcion: "Remera que muestra los capítulos internacionales de AV. Edición especial.",
-        url: "https://www.anonymousforthevoiceless.org/shop/unisex-organic-cotton-av-chapters",
-        imagen: "https://www.anonymousforthevoiceless.org/wp-content/uploads/2023/01/Unisex-Organic-Cotton-AV-Chapters.jpg",
-        category: "Unisex"
+        descripcion: "No solo es una gran pieza para calentar la cabeza, sino también un accesorio básico en el guardarropa de cualquier persona.",
+        imagen: "../src/assets/images/products/beanie.png",
+        category: "Accesorios"
     }
     ];

@@ -3,7 +3,7 @@ import NavBar from './components/header/NavBar'
 import ItemListContainer from './components/pages/ItemListContainer'
 import { Route, Routes } from 'react-router'
 import NotFound from './components/pages/NotFound'
-import ItemDetail from './components/pages/ItemDetail'
+import ItemDetail from './components/body/ItemDetail'
 
 function App() {
 
@@ -11,10 +11,10 @@ function App() {
     <>
       <NavBar/>
       <Routes>
-        <Route path="/" element={ItemListContainer}></Route>
-        <Route path="/category/:category" element={ItemListContainer}></Route>
-        <Route path="/item/:id" element={ItemDetail}></Route>
-        <Route path="*" element={NotFound}></Route>
+        <Route path="/" element={<ItemListContainer/>}></Route>
+        <Route path="/category/:category" element={<ItemListContainer/>}></Route>
+        <Route path="/item/:id" element={<ItemDetail/>}></Route>
+        <Route path="*" element={<NotFound/>}></Route>
 
       </Routes>
     </>
