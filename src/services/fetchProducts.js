@@ -1,9 +1,25 @@
 import {products} from "../services/products"
 
-export default function fetchProducts() {
-    return new Promise((resolve,reject)=>  {
+export function fetchProducts() {
+    return new Promise((resolve)=>  {
         setTimeout(()=> {
             resolve(products)
-        },1500)
+        },2000)
+    })
+}
+
+export function fetchProductById(id) {
+    return new Promise((resolve)=> {
+        setTimeout(()=> {
+            resolve(products.find(product => product.id === parseInt(id)))
+        },2000)
+    })
+}
+
+export function fetchProducstByCategory(category) {
+    return new Promise((resolve)=> {
+        setTimeout(()=> {
+            resolve(products.filter(product => product.category === category))
+        },2000)
     })
 }
