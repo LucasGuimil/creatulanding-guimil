@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-const ItemCount = ({product}) => {
+const ItemCount = ({stock}) => {
     const [count, setCount] = useState(0)
-    const sum = ()=>{count===product.stock ? setCount(product.stock) : setCount(count + 1)}
+    const sum = ()=>{count===stock ? setCount(stock) : setCount(count + 1)}
     const rest = ()=>{count===0 ? setCount(0) : setCount(count - 1)}
 
     return (
@@ -12,6 +12,6 @@ const ItemCount = ({product}) => {
             <button className='btn-dark' onClick={sum}>+</button>  
         </div>
     )
-}
+}   
 
 export default ItemCount
