@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-const ItemCount = ({stock}) => {
-    const [count, setCount] = useState(0)
+const ItemCount = ({stock, count, setCount}) => {
     const sum = ()=>{setCount(count + 1)}
     const rest = ()=>{setCount(count - 1)}
 

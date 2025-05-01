@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ItemCount from './ItemCount'
 import BackButton from './BackButton'
 
 const ItemDetail = ({productDetail}) => {
+    const [count, setCount] = useState(0)
+
     return (
         <div>
             <div>
@@ -19,9 +21,9 @@ const ItemDetail = ({productDetail}) => {
                         <p className="card-text">{productDetail.descripcion}</p>
                         <p className="card-text">Precio: ARS${productDetail.precio}</p>
                         <p className="card-text"><small className="text-muted">Stock: {productDetail.stock}</small></p>
-                        <ItemCount stock={productDetail.stock}/>
+                        <ItemCount stock={productDetail.stock} count={count} setCount={setCount} />
                     </div>
-
+                    <button className='btn btn-dark' disabled={count==0}>Agregar al carrito</button>
                     </div>
                 </div>
             </div>
