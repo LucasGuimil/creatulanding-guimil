@@ -1,21 +1,28 @@
-import {useContext , useState} from 'react'
+import {createContext , useContext, useState} from 'react'
 
-export const Context = useContext()
+export const CartContext = createContext()
 
 
 const CartContextProvider = ({children}) => {
     const [cart, setCart] = useState([])
+    console.log(cart)
+    const addItem = (product, count)=> {
+        console.log(product.id)
+        const productExists = cart.some(item => item.id===product.id)
 
-    const addItem = (product, quantity)=> {
-        setCart([...cart, {...product, quantity: quantity}])
+        productExists? console.log("producto ya existente") : setCart([...cart, {...product, quantity: count}])
+        console.log(productExists)
     }
 
-
     return (
-        <div>
-        
-        </div>
+        <CartContext.Provider value = {{cart, setCart, addItem}}>
+            {children}
+        </CartContext.Provider>
     )
 }
 
-export default CartContext
+export default CartContextProvider
+
+export const useCartContext = () => {
+    return useContext(CartContext)
+}
