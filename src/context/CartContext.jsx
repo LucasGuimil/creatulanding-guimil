@@ -9,9 +9,14 @@ const CartContextProvider = ({children}) => {
         const productExists = cart.some(item => item.id===product.id)
         productExists? console.log("producto ya existente") : setCart([...cart, {...product, quantity: count}])
     }
-
+    const deleteItem = (id) => {
+        const indexItem = cart.findIndex(item => item.id===id)
+        const updatedCart = [...cart]
+        updatedCart.splice(indexItem,1)
+        setCart(updatedCart)
+    }
     return (
-        <CartContext.Provider value = {{cart, setCart, addItem}}>
+        <CartContext.Provider value = {{cart, setCart, addItem, deleteItem}}>
             {children}
         </CartContext.Provider>
     )

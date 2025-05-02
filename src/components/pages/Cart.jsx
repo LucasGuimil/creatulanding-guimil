@@ -5,7 +5,6 @@ import CartItem from '../body/CartItem'
 
 const Cart = () => {
     const {cart, setCart} = useCartContext()
-    console.log(cart)
     return (
         <div>
             {(cart.length==0)? (
@@ -14,7 +13,10 @@ const Cart = () => {
                     <Link to="/" className='btn btn-dark'>Ir al inicio</Link>
                 </div>) : (
                 cart.map(cartItem => (
-                    <CartItem item={cartItem} key={cartItem.id}/>
+                    <>
+                        <CartItem item={cartItem} key={cartItem.id}/>
+                        <button></button>
+                    </>
                 )))}
         </div>
     )

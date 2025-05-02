@@ -1,6 +1,9 @@
 import React from 'react'
+import {useCartContext} from '../../context/CartContext'
 
 const CartItem = ({item}) => {
+
+    const {deleteItem} = useCartContext()
     return (
         <div className='d-flex justify-content-center'>
             <div className="card w-50 mb-3">
@@ -15,7 +18,7 @@ const CartItem = ({item}) => {
                         <p className="card-text">Precio: ARS$ {item.precio}</p>
                         <p className="card-text">Subtotal: ARS$ {item.quantity*item.precio}</p>
                     </div>
-                    <button className='btn btn-dark' /* onClick={()=>{addItem(productDetail, count)}} */>Eliminar producto</button>
+                    <button className='btn btn-dark' onClick={()=>{deleteItem(item.id)}}>Eliminar producto</button>
                     </div>
                 </div>
             </div>
