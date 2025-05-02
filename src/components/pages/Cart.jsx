@@ -4,7 +4,8 @@ import { Link } from 'react-router'
 import CartItem from '../body/CartItem'
 
 const Cart = () => {
-    const {cart, clearCart} = useCartContext()
+    const {cart, clearCart, cartTotal} = useCartContext()
+
     return (
         <div>
             {(cart.length==0)? (
@@ -18,7 +19,11 @@ const Cart = () => {
                                 <CartItem item={cartItem} key={cartItem.id}/>
                         ))}
                     </div>
-                    <button className='btn btn-danger' onClick={clearCart}>Vaciar carrito</button>
+                    <div className='my-2'>
+                        <h1 className='text-center'>Total: ARS$ {cartTotal}</h1>
+                        <button className='btn btn-dark mx-2' /* onClick={buy} */>Finalizar compra</button>
+                        <button className='btn btn-danger mx-2' onClick={clearCart}>Vaciar carrito</button>
+                    </div>
                 </>)}
         </div>
     )
