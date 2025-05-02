@@ -11,7 +11,7 @@ const Item = ({product}) => {
                     <h5 className="card-title">{product.nombre}</h5>
                     <p className="card-text">ARS$ {product.precio}</p>
                 </div> 
-                <div className='card-footer mb-0'>
+                <div className='card-footer mb-1'>
                     <Link to={'/item/'+ product.id} className="btn btn-dark">Ver detalle</Link>
                 </div>
             </div>

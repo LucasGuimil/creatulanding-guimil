@@ -5,18 +5,24 @@ export const CartContext = createContext()
 
 const CartContextProvider = ({children}) => {
     const [cart, setCart] = useState([])
+    
     const addItem = (product, count)=> {
         const productExists = cart.some(item => item.id===product.id)
         productExists? console.log("producto ya existente") : setCart([...cart, {...product, quantity: count}])
     }
+
     const deleteItem = (id) => {
         const indexItem = cart.findIndex(item => item.id===id)
         const updatedCart = [...cart]
         updatedCart.splice(indexItem,1)
         setCart(updatedCart)
     }
+
+    const clearCart = () => {
+        setCart([])
+    }
     return (
-        <CartContext.Provider value = {{cart, setCart, addItem, deleteItem}}>
+        <CartContext.Provider value = {{cart, setCart, addItem, deleteItem, clearCart}}>
             {children}
         </CartContext.Provider>
     )
