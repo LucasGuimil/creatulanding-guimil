@@ -1,11 +1,32 @@
-import {createContext , useContext, useState} from 'react'
+import {createContext , useContext, useEffect, useState} from 'react'
+import { getProducts } from '../services/firebaseServices'
+import { useParams } from 'react-router'
 
 export const CartContext = createContext()
 
 
 const CartContextProvider = ({children}) => {
+
     const [cart, setCart] = useState([])
+    const [list, setList] = useState([])
+    const {category} = useParams()
+    const fetchDesignado = category===undefined ? getProducts : fetchProducstByCategory  
+    const [greeting, setGreeting] = useState({})
+    const [cargando, setCargando] = useState(true)
     
+    useEffect(()=>{
+        setCargando(true)
+        fetchDesignado(category).then(res => {
+            setList(res)
+            setGreeting({
+                categoria: category!==undefined? category:"Todos los productos",
+                descripcion: category!==undefined? 'Estos son los productos disponibles de la categoría: '+category:"Estos son todos los productos disponibles."
+            })
+        })
+        .finally(()=>{setCargando(false)})
+    },[category])
+    
+
     const addItem = (product, count)=> {
         const productExists = cart.some(item => item.id===product.id)
         productExists? console.log("producto ya existente") : setCart([...cart, {...product, quantity: count}])
@@ -30,9 +51,9 @@ const CartContextProvider = ({children}) => {
         return total + (item.quantity * item.precio) 
     },0)
 
-
+    getProducts()
     return (
-        <CartContext.Provider value = {{cart, setCart, addItem, deleteItem, clearCart, cartQuantity, cartTotal}}>
+        <CartContext.Provider value = {{cart, setCart, addItem, deleteItem, clearCart, cartQuantity, cartTotal, list, setList,greeting, cargando, setCargando}}>
             {children}
         </CartContext.Provider>
     )

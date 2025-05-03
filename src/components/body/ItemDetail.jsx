@@ -5,7 +5,7 @@ import {useCartContext} from '../../context/CartContext'
 
 const ItemDetail = ({productDetail}) => {
     const [count, setCount] = useState(0)
-    const {cart, setCart, addItem} = useCartContext()
+    const {addItem} = useCartContext()
     
 
     return (
@@ -16,13 +16,13 @@ const ItemDetail = ({productDetail}) => {
             <div className="card mb-3">
                 <div className="row g-0">
                     <div className="col-md-4">
-                    <img src={productDetail.imagen} className="img-fluid rounded" alt={productDetail.descripcion}/>
+                    <img src={productDetail.image} className="img-fluid rounded" alt={productDetail.description}/>
                     </div>
                     <div className="col-md-8">
                     <div className="card-body">
-                        <h4 className="card-title">{productDetail.nombre}</h4>
-                        <p className="card-text">{productDetail.descripcion}</p>
-                        <p className="card-text">Precio: ARS${productDetail.precio}</p>
+                        <h4 className="card-title">{productDetail.name}</h4>
+                        <p className="card-text">{productDetail.description}</p>
+                        <p className="card-text">Precio: ARS${productDetail.price}</p>
                         <p className="card-text"><small className="text-muted">Stock: {productDetail.stock}</small></p>
                         <ItemCount stock={productDetail.stock} count={count} setCount={setCount} />
                     </div>

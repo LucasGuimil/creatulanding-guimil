@@ -3,14 +3,18 @@ import ItemList from '../body/ItemList'
 import {fetchProducts, fetchProducstByCategory} from '../../services/fetchProducts'
 import { useParams } from 'react-router'
 import Loading from '../body/Loading'
+import { useCartContext } from '../../context/CartContext'
 
 const ItemListContainer = ()=> {
     
-    const [list, setList] = useState([])
+    const {list, cargando, greeting} = useCartContext()
+    
+/*     const [list, setList] = useState([])
     const {category} = useParams()
     const fetchDesignado = category===undefined ? fetchProducts : fetchProducstByCategory  
     const [greeting, setGreeting] = useState({})
     const [cargando, setCargando] = useState(true)
+
     useEffect(()=>{
         setCargando(true)
         fetchDesignado(category).then(res => {
@@ -22,7 +26,7 @@ const ItemListContainer = ()=> {
         })
         .finally(()=>{setCargando(false)})
     },[category])
-
+ */
         return (
             <div>
                 {cargando?(<Loading/>):(            
