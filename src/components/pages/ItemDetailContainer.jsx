@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import { fetchProductById } from '../../services/fetchProducts'
 import ItemDetail from '../body/ItemDetail'
 import Loading from '../body/Loading'
+import { useCartContext } from '../../context/CartContext'
+import { getProductById } from '../../services/firebaseServices'
 
 const ItemDetailContainer = () => {
     const [productDetail, setProductDetail] = useState({})
     const {id} = useParams()
-    const [cargando, setCargando] = useState(true)
+    const {cargando, setCargando} = useCartContext()
 
     useEffect(()=> {
         setCargando(true)
-        fetchProductById(id).then(res => setProductDetail(res)).finally(()=>setCargando(false))}
+        getProductById(id).then(res => setProductDetail(res))
+        .finally(()=>setCargando(false))}
     ,[id])
 
     return (

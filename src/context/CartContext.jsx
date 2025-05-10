@@ -1,5 +1,5 @@
 import {createContext , useContext, useEffect, useState} from 'react'
-import { getProducts } from '../services/firebaseServices'
+import { getProducts, getProductsByCategory } from '../services/firebaseServices'
 import { useParams } from 'react-router'
 
 export const CartContext = createContext()
@@ -8,23 +8,10 @@ export const CartContext = createContext()
 const CartContextProvider = ({children}) => {
 
     const [cart, setCart] = useState([])
-    const [list, setList] = useState([])
-    const {category} = useParams()
-    const fetchDesignado = category===undefined ? getProducts : fetchProducstByCategory  
-    const [greeting, setGreeting] = useState({})
+    const [list, setList] = useState([]) 
     const [cargando, setCargando] = useState(true)
     
-    useEffect(()=>{
-        setCargando(true)
-        fetchDesignado(category).then(res => {
-            setList(res)
-            setGreeting({
-                categoria: category!==undefined? category:"Todos los productos",
-                descripcion: category!==undefined? 'Estos son los productos disponibles de la categoría: '+category:"Estos son todos los productos disponibles."
-            })
-        })
-        .finally(()=>{setCargando(false)})
-    },[category])
+
     
 
     const addItem = (product, count)=> {
@@ -53,7 +40,7 @@ const CartContextProvider = ({children}) => {
 
     getProducts()
     return (
-        <CartContext.Provider value = {{cart, setCart, addItem, deleteItem, clearCart, cartQuantity, cartTotal, list, setList,greeting, cargando, setCargando}}>
+        <CartContext.Provider value = {{cart, setCart, addItem, deleteItem, clearCart, cartQuantity, cartTotal, list, setList, cargando, setCargando}}>
             {children}
         </CartContext.Provider>
     )

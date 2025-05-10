@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import ItemList from '../body/ItemList'
-import {fetchProducts, fetchProducstByCategory} from '../../services/fetchProducts'
 import { useParams } from 'react-router'
 import Loading from '../body/Loading'
 import { useCartContext } from '../../context/CartContext'
+import { getProducts, getProductsByCategory } from '../../services/firebaseServices'
 
 const ItemListContainer = ()=> {
     
-    const {list, cargando, greeting} = useCartContext()
-    
-/*     const [list, setList] = useState([])
+    const {list, setList, cargando, setCargando} = useCartContext()
     const {category} = useParams()
-    const fetchDesignado = category===undefined ? fetchProducts : fetchProducstByCategory  
+    const fetchDesignado = category ? getProductsByCategory : getProducts
     const [greeting, setGreeting] = useState({})
-    const [cargando, setCargando] = useState(true)
+
 
     useEffect(()=>{
         setCargando(true)
@@ -26,7 +24,7 @@ const ItemListContainer = ()=> {
         })
         .finally(()=>{setCargando(false)})
     },[category])
- */
+
         return (
             <div>
                 {cargando?(<Loading/>):(            
