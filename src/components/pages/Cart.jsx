@@ -5,7 +5,7 @@ import CartItem from '../body/CartItem'
 
 const Cart = () => {
     const {cart, clearCart, cartTotal} = useCartContext()
-
+    console.log(cart)
     return (
         <div>
             {(cart.length==0)? (

@@ -8,14 +8,16 @@ import { getProductById } from '../../services/firebaseServices'
 const ItemDetailContainer = () => {
     const [productDetail, setProductDetail] = useState({})
     const {id} = useParams()
-    const {cargando, setCargando} = useCartContext()
+    const {cargando, setCargando, productExists} = useCartContext()
 
     useEffect(()=> {
         setCargando(true)
-        getProductById(id).then(res => setProductDetail(res))
-        .finally(()=>setCargando(false))}
+        getProductById(id)
+        .then(res => setProductDetail(res))
+        .finally(()=>setCargando(false))
+        }
     ,[id])
-
+    productExists(productDetail)
     return (
         <div>
             {cargando?(<Loading/>): (

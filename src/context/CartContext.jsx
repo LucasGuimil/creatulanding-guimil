@@ -1,6 +1,6 @@
 import {createContext , useContext, useEffect, useState} from 'react'
 import { getProducts, getProductsByCategory } from '../services/firebaseServices'
-import { useParams } from 'react-router'
+import Swal from 'sweetalert2'
 
 export const CartContext = createContext()
 
@@ -10,13 +10,21 @@ const CartContextProvider = ({children}) => {
     const [cart, setCart] = useState([])
     const [list, setList] = useState([]) 
     const [cargando, setCargando] = useState(true)
+    const [inCart, setInCart] = useState(false)
     
+    const productExists = (product)=> {
+        cart.some(item => item.id===product.id)?setInCart(true):setInCart(false)
+    }
 
-    
-
-    const addItem = (product, count)=> {
-        const productExists = cart.some(item => item.id===product.id)
-        productExists? console.log("producto ya existente") : setCart([...cart, {...product, quantity: count}])
+    const addItem = (product, count)=> { 
+        setCart([...cart, {...product, quantity: count}])
+        Swal.fire({
+            timer:1500,
+            text: "¡Producto añadido correctamente!",
+            icon: 'success',
+            showConfirmButton: false,
+        })
+        setInCart(true)
     }
 
     const deleteItem = (id) => {
@@ -35,12 +43,11 @@ const CartContextProvider = ({children}) => {
     },0)
 
     const cartTotal = cart.reduce((total, item)=> {
-        return total + (item.quantity * item.precio) 
+        return total + (item.quantity * item.price) 
     },0)
 
-    getProducts()
     return (
-        <CartContext.Provider value = {{cart, setCart, addItem, deleteItem, clearCart, cartQuantity, cartTotal, list, setList, cargando, setCargando}}>
+        <CartContext.Provider value = {{cart, setCart, addItem, deleteItem, clearCart, cartQuantity, cartTotal, list, setList, cargando, setCargando, inCart, productExists}}>
             {children}
         </CartContext.Provider>
     )
