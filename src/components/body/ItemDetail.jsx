@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import ItemCount from './ItemCount'
 import BackButton from './BackButton'
+import { useCartContext } from '../../context/CartContext'
 
 const ItemDetail = ({productDetail}) => {
+    const {inCart} = useCartContext()
     return (
         <div>
             <div>
@@ -20,7 +22,8 @@ const ItemDetail = ({productDetail}) => {
                         <p className="card-text">Precio: ARS${productDetail.price}</p>
                         <p className="card-text"><small className="text-muted">Stock: {productDetail.stock}</small></p>
                     </div>
-                        <ItemCount productDetail={productDetail}/>
+                        {inCart?(<h3>Este producto ya se encuentra en su carrito.</h3>):
+                        <ItemCount productDetail={productDetail}/>}
                     </div>
                 </div>
             </div>

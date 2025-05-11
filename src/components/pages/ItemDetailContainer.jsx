@@ -12,12 +12,13 @@ const ItemDetailContainer = () => {
 
     useEffect(()=> {
         setCargando(true)
+        productExists(id)
         getProductById(id)
-        .then(res => setProductDetail(res))
+        .then(res =>setProductDetail(res))
         .finally(()=>setCargando(false))
         }
     ,[id])
-    productExists(productDetail)
+    
     return (
         <div>
             {cargando?(<Loading/>): (

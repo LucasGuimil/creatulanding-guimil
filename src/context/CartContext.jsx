@@ -1,5 +1,4 @@
 import {createContext , useContext, useEffect, useState} from 'react'
-import { getProducts, getProductsByCategory } from '../services/firebaseServices'
 import Swal from 'sweetalert2'
 
 export const CartContext = createContext()
@@ -12,19 +11,14 @@ const CartContextProvider = ({children}) => {
     const [cargando, setCargando] = useState(true)
     const [inCart, setInCart] = useState(false)
     
-    const productExists = (product)=> {
-        cart.some(item => item.id===product.id)?setInCart(true):setInCart(false)
+    const productExists = (id)=> {
+        cart.some(item => item.id===id)? setInCart(true):setInCart(false)
     }
 
     const addItem = (product, count)=> { 
-        setCart([...cart, {...product, quantity: count}])
-        Swal.fire({
-            timer:1500,
-            text: "¡Producto añadido correctamente!",
-            icon: 'success',
-            showConfirmButton: false,
-        })
-        setInCart(true)
+        if (!inCart){
+        setCart([...cart, {...product, quantity: count}]) 
+        setInCart(true)}
     }
 
     const deleteItem = (id) => {
