@@ -2,10 +2,30 @@ import React from 'react'
 import {useCartContext} from '../../context/CartContext'
 import { Link } from 'react-router'
 import CartItem from '../body/CartItem'
+import Swal from 'sweetalert2'
 
 const Cart = () => {
     const {cart, clearCart, cartTotal} = useCartContext()
-    console.log(cart)
+    const clearCartAlert = ()=> {Swal.fire({
+    title: "Vaciar carrito",
+    text: '¿Está seguro? Esta acción no podrá deshacerse.',
+    icon: "warning",
+    showCancelButton: true,
+    cancelmButtonColor: "#010101",
+    confirmButtonColor: "#d33",
+    confirmButtonText: "Vaciar",
+    cancelButtonText: "Cancelar"
+    }).then((result) => {
+    if (result.isConfirmed) {
+        clearCart()
+        Swal.fire({
+        title: "¡Acción realizada con éxito!",
+        icon: "success",
+        confirmButtonColor: "#010101"
+        });
+    }
+    })}
+
     return (
         <div>
             {(cart.length==0)? (
@@ -22,7 +42,7 @@ const Cart = () => {
                     <div className='my-2'>
                         <h1 className='text-center'>Total: ARS$ {cartTotal}</h1>
                         <button className='btn btn-dark mx-2' /* onClick={buy} */>Finalizar compra</button>
-                        <button className='btn btn-danger mx-2' onClick={clearCart}>Vaciar carrito</button>
+                        <button className='btn btn-danger mx-2' onClick={()=>clearCartAlert()}>Vaciar carrito</button>
                     </div>
                 </>)}
         </div>

@@ -7,8 +7,7 @@ const ItemCount = ({productDetail}) => {
     const [count, setCount] = useState(0)
     const sum = ()=>{setCount(count + 1)}
     const rest = ()=>{setCount(count - 1)}
-    const toastAlert = Swal.mixin({
-        toast: true,
+    const succesAlert = Swal.mixin({
         timer:1500,
         text: "¡Producto añadido correctamente!",
         icon: 'success',
@@ -26,8 +25,8 @@ const ItemCount = ({productDetail}) => {
             <h4 className='mx-2'>{count}</h4>
             <button className='btn btn-dark' onClick={sum} disabled={count>=productDetail.stock}>+</button>  
         </div>
-        <div>
-            <button className='btn btn-dark' disabled={count==0} onClick={()=>{addItem(productDetail, count),toastAlert.fire()}}>Agregar al carrito</button>
+        <div className='mt-4'>
+            <button className='btn btn-dark' disabled={count==0} onClick={()=>{addItem(productDetail, count),succesAlert.fire()}}>Agregar al carrito</button>
         </div>
         </>))
     )
