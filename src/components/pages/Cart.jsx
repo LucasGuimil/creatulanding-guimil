@@ -11,7 +11,7 @@ const Cart = () => {
     text: '¿Está seguro? Esta acción no podrá deshacerse.',
     icon: "warning",
     showCancelButton: true,
-    cancelmButtonColor: "#010101",
+    cancelButtonColor: "#010101",
     confirmButtonColor: "#d33",
     confirmButtonText: "Vaciar",
     cancelButtonText: "Cancelar"
