@@ -7,15 +7,14 @@ const Item = ({product}) => {
         <div className="col">
             <div className="card m-4 h-100">
             <img src={product.image} className="card-img-top " alt={product.description}/>
-                <div className="card-body my-auto">
-                    <h5 className="card-title">{product.name}</h5>
-                    <p className="card-text">ARS$ {product.price}</p>
+                <div className="card-body d-flex flex-column justify-content-center p-0">
+                    <div><h5 className="card-title">{product.name}</h5></div>
+                    <div><p className="card-text">ARS$ {product.price}</p></div>
+                    <div><p className="card-text text-muted">En stock: {product.stock}</p></div>
                 </div> 
-                <div className='card-footer mb-1'>
-                    <Link to={'/item/'+ product.id} className="btn btn-dark">Ver detalle</Link>
+                    <Link to={'/item/'+ product.id} className="btn btn-dark w-50 mx-auto mb-2">Ver detalle</Link>
                 </div>
-            </div>
-        </div>  
+        </div>
     )
 }
 
