@@ -9,6 +9,7 @@ const CartContextProvider = ({children}) => {
     const [list, setList] = useState([]) 
     const [cargando, setCargando] = useState(true)
     const [inCart, setInCart] = useState(false)
+    const [hide, setHide] = useState(true)
     
     const productExists = (id)=> {
         cart.some(item => item.id===id)? setInCart(true):setInCart(false)
@@ -40,7 +41,7 @@ const CartContextProvider = ({children}) => {
     },0)
 
     return (
-        <CartContext.Provider value = {{cart, setCart, addItem, deleteItem, clearCart, cartQuantity, cartTotal, list, setList, cargando, setCargando, inCart, productExists}}>
+        <CartContext.Provider value = {{cart, setCart, addItem, deleteItem, clearCart, cartQuantity, cartTotal, list, setList, cargando, setCargando, inCart, productExists, hide, setHide}}>
             {children}
         </CartContext.Provider>
     )

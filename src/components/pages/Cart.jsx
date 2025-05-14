@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react'
+import React from 'react'
 import {useCartContext} from '../../context/CartContext'
 import { Link } from 'react-router'
 import CartItem from '../body/CartItem'
@@ -6,8 +6,7 @@ import Swal from 'sweetalert2'
 import CheckoutForm from '../body/CheckoutForm'
 
 const Cart = () => {
-    const {cart, clearCart, cartTotal} = useCartContext()
-    const [hide, setHide] = useState(true)
+    const {cart, clearCart, cartTotal, hide, setHide} = useCartContext()
 
     const clearCartAlert = ()=> {Swal.fire({
         title: "Vaciar carrito",
@@ -45,12 +44,15 @@ const Cart = () => {
                     </div>
                     <div className='my-2'>
                         <h1 className='text-center'>Total: ARS$ {cartTotal}</h1>
-                        <button className='btn btn-dark mx-2' onClick={()=>setHide(false)}>Finalizar compra</button>
-                        <button className='btn btn-danger mx-2' onClick={()=>clearCartAlert()}>Vaciar carrito</button>
                     </div>
+                    {hide?
+                        <div className='p-2'>
+                            <button className='btn btn-dark mx-2' onClick={()=>setHide(false)}>Finalizar compra</button>
+                            <button className='btn btn-danger mx-2' onClick={()=>clearCartAlert()}>Vaciar carrito</button>
+                        </div>:
                     <div>
-                        {hide?<></>:<CheckoutForm/>}
-                    </div>
+                        <CheckoutForm/>
+                    </div>}
                 </>)}
         </div>
     )
