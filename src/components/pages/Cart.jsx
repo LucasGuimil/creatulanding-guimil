@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { use, useState } from 'react'
 import {useCartContext} from '../../context/CartContext'
 import { Link } from 'react-router'
 import CartItem from '../body/CartItem'
@@ -8,25 +8,28 @@ import CheckoutForm from '../body/CheckoutForm'
 const Cart = () => {
     const {cart, clearCart, cartTotal} = useCartContext()
     const [hide, setHide] = useState(true)
+
     const clearCartAlert = ()=> {Swal.fire({
-    title: "Vaciar carrito",
-    text: '¿Está seguro? Esta acción no podrá deshacerse.',
-    icon: "warning",
-    showCancelButton: true,
-    cancelButtonColor: "#010101",
-    confirmButtonColor: "#d33",
-    confirmButtonText: "Vaciar",
-    cancelButtonText: "Cancelar"
-    }).then((result) => {
-    if (result.isConfirmed) {
-        clearCart()
-        Swal.fire({
-        title: "¡Acción realizada con éxito!",
-        icon: "success",
-        confirmButtonColor: "#010101"
-        });
-    }
-    })}
+        title: "Vaciar carrito",
+        text: '¿Está seguro? Esta acción no podrá deshacerse.',
+        icon: "warning",
+        showCancelButton: true,
+        cancelButtonColor: "#010101",
+        confirmButtonColor: "#d33",
+        confirmButtonText: "Vaciar",
+        cancelButtonText: "Cancelar"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                clearCart()
+                Swal.fire({
+                title: "¡Acción realizada con éxito!",
+                icon: "success",
+                confirmButtonColor: "#010101"
+                });
+            }
+        })}
+
+
     return (
         <div>
             {(cart.length==0)? (
