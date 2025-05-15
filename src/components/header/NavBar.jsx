@@ -6,7 +6,7 @@ function NavBar() {
     return (
         <nav className="navbar navbar-expand-sm mt-0 mb-2 navbar-dark fondo-oscuro">
             <div className="container-fluid justify-content-between">
-                <Link className="navbar-brand p-2" to="/"><img src="/src/assets/images/av-logo.png" width="100px" /></Link>
+                <Link className="navbar-brand p-2" to="/"><img src="/public/assets/images/av-logo.png" width="100px" /></Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>
