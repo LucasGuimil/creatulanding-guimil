@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { createOrder } from '../../services/firebaseServices'
+import { createOrder, updateStock } from '../../services/firebaseServices'
 import { useCartContext } from '../../context/CartContext'
 import Swal from 'sweetalert2'
 import Loading from './Loading'
@@ -13,7 +13,8 @@ const CheckoutForm = () => {
         phone: '',
         email: ''
     })
-    
+
+
     function updateBuyerData (e) {
         setUser({...user, [e.target.name]: e.target.value })
     }
@@ -71,9 +72,13 @@ const CheckoutForm = () => {
                             icon: 'success',
                             confirmButtonColor: '#010101',
                             didClose: ()=> {
-                                clearCart()
-                                setHide(true)
-                                navigate('/')   
+                                cart.map(cartItem=> {
+                                    updateStock(cartItem.id,cartItem.quantity).then(response=>{
+                                        clearCart()
+                                        setHide(true)
+                                        navigate('/')   
+                                    })
+                                })
                             }
                         })
                     })
