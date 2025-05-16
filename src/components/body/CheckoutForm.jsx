@@ -73,7 +73,7 @@ const CheckoutForm = () => {
                             confirmButtonColor: '#010101',
                             didClose: ()=> {
                                 cart.map(cartItem=> {
-                                    updateStock(cartItem.id,cartItem.quantity).then(response=>{
+                                    updateStock(cartItem.id,cartItem.quantity).then(()=>{
                                         clearCart()
                                         setHide(true)
                                         navigate('/')   
